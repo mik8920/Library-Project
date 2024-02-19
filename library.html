@@ -8,53 +8,67 @@
   </head>
   <body>
     <div class="form">
-      <form id="bookform" action="" method="POST">
-        <ul>
-          <li>
-            <label for="title">Title</label>
-            <input
-              type="text"
-              name="title"
-              id="title"
-              required
-              placeholder="Harry Potter"
-            />
-          </li>
+      <dialog class="favDialog">
+        <form id="bookform" action="" method="POST">
+          <ul>
+            <li>
+              <label for="title">Title</label>
+              <input
+                type="text"
+                name="title"
+                id="title"
+                required
+                placeholder="Harry Potter"
+              />
+            </li>
 
-          <li>
-            <label for="author">Author</label>
-            <input
-              type="text"
-              name="author"
-              id="pages"
-              required
-              placeholder="JK Rowling"
-            />
-          </li>
+            <li>
+              <label for="author">Author</label>
+              <input
+                type="text"
+                name="author"
+                id="author"
+                required
+                placeholder="JK Rowling"
+              />
+            </li>
 
-          <li>
-            <label for="pages">Pages</label>
-            <input
-              type="text"
-              name="pages"
-              id="pages"
-              required
-              placeholder="1000"
-            />
-          </li>
+            <li>
+              <label for="pages">Pages</label>
+              <input
+                type="text"
+                name="pages"
+                id="pages"
+                required
+                placeholder="1000"
+              />
+            </li>
 
-          <li>
-            <label for="read">Read</label>
-            <input
-              type="text"
-              name="read"
-              id="read"
-              required
-              placeholder="Yes"
-            />
-          </li>
-        </ul>
-      </form>
+            <li>
+              <label for="read">Read</label>
+              <input
+                type="text"
+                name="read"
+                id="read"
+                required
+                placeholder="Yes"
+              />
+            </li>
+          </ul>
+          <div class="buttons">
+            <button
+              class="cancelBtn"
+              value="novalidate-close"
+              formmethod="dialog"
+              formnovalidate
+            >
+              Cancel
+            </button>
+            <button class="confirmBtn" value="default">Confirm</button>
+          </div>
+        </form>
+      </dialog>
+      <button class="showDialog">New Book</button>
     </div>
     <div class="bookDisplay"></div>
     <script src="library.js"></script>

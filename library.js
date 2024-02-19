@@ -1,4 +1,10 @@
 const bookDisplay = document.querySelector(".bookDisplay");
+const showButton = document.querySelector(".showDialog");
+const favDialog = document.querySelector(".favDialog");
+const confirmBtn = favDialog.querySelector(".confirmBtn");
+const cancelBtn = favDialog.querySelector(".cancelBtn");
+const form = document.querySelector(".form");
+
 
 const myLibrary = [];
 
@@ -17,16 +23,16 @@ function Book(title, author, pages, read) {
 
 /*stores books into myLibrary array*/
 function addBookToLibrary(title, author, pages, read) {
-  const newBook = new Book(title, author, pages, read);
+  const newBook = new Book(title.value, author.value, pages.value, read.value);
   myLibrary.push(newBook);
 }
 
-addBookToLibrary("Harry Potter1", "JK Rowling", 1000, true);
+/* addBookToLibrary("Harry Potter1", "JK Rowling", 1000, true);
 addBookToLibrary("Harry Potter2", "JK Rowling", 1000, true);
-addBookToLibrary("Harry Potter3", "JK Rowling", 1000, false);
+addBookToLibrary("Harry Potter3", "JK Rowling", 1000, false); */
 
-/*displays each book on the apge*/
-const updateBooks = (title, author, pages, read) => {
+/*displays each book on the page*/
+const updateBooks = () => {
   while (bookDisplay.firstChild) {
     bookDisplay.removeChild(bookDisplay.firstChild);
   }
@@ -50,9 +56,26 @@ const updateBooks = (title, author, pages, read) => {
     bookDiv.appendChild(pagesPara);
 
     const readPara = document.createElement("p");
-    readPara.textContent = `Read: ${book.read ? "Yes" : "No"}`;
+    readPara.textContent = `Read: ${
+      book.read.toLowerCase() === "yes"
+        ? "Yes"
+        : book.read.toLowerCase() === "no"
+        ? "No"
+        : ""
+    }`;
     bookDiv.appendChild(readPara);
   }
 };
 
 updateBooks();
+
+showButton.addEventListener("click", () => {
+  favDialog.showModal();
+});
+
+confirmBtn.addEventListener("click", (event) => {
+  event.preventDefault();
+  favDialog.close();
+  addBookToLibrary(title, author, pages, read);
+  updateBooks();
+});
