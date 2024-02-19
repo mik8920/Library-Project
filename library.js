@@ -5,7 +5,6 @@ const confirmBtn = favDialog.querySelector(".confirmBtn");
 const cancelBtn = favDialog.querySelector(".cancelBtn");
 const form = document.querySelector(".form");
 
-
 const myLibrary = [];
 
 /*the constructor*/
@@ -64,6 +63,14 @@ const updateBooks = () => {
         : ""
     }`;
     bookDiv.appendChild(readPara);
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "Delete";
+    bookDiv.appendChild(deleteBtn);
+
+    deleteBtn.addEventListener("click", () => {
+      bookDisplay.removeChild(bookDiv);
+    });
   }
 };
 
