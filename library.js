@@ -55,16 +55,12 @@ const updateBooks = () => {
 
     const readPara = document.createElement("p");
     readPara.textContent = `Read: ${
-      book.read.toLowerCase() === "yes"
-        ? "Yes"
-        : book.read.toLowerCase() === "no"
-        ? "No"
-        : ""
+      book.read.toLowerCase() === "yes" ? "Yes" : "No"
     }`;
     bookDiv.appendChild(readPara);
 
     const editBtn = document.createElement("button");
-    editBtn.setAttribute("class", "edBtn")
+    editBtn.setAttribute("class", "edBtn");
     editBtn.textContent = "Change Read Status";
     bookDiv.appendChild(editBtn);
 
@@ -74,7 +70,7 @@ const updateBooks = () => {
     });
 
     const deleteBtn = document.createElement("button");
-    deleteBtn.setAttribute("class", "delBtn")
+    deleteBtn.setAttribute("class", "delBtn");
     deleteBtn.textContent = "Delete Book";
     bookDiv.appendChild(deleteBtn);
 
@@ -95,4 +91,12 @@ confirmBtn.addEventListener("click", (event) => {
   dialog.close();
   addBookToLibrary(title, author, pages, read);
   updateBooks();
+  emptyInputFields();
 });
+
+const emptyInputFields = () => {
+  title.value = "";
+  author.value = "";
+  pages.value = "";
+  read.value = "";
+};
