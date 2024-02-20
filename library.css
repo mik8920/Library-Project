@@ -1,0 +1,111 @@
+body {
+  background-color: rgba(188, 224, 255, 0.459);
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  font-size: 3em;
+  text-align: center;
+  text-decoration: underline;
+  text-shadow: 4px 4px 12px rgb(195, 255, 255);
+  color: rgb(22, 107, 122);
+  box-shadow: 1px 12px 12px rgba(9, 81, 99, 0.466);
+}
+
+.showDialog {
+  border: 0.15em solid rgba(8, 78, 78, 0.589);
+  border-radius: 0.5em;
+  background-color: transparent;
+  color: rgba(8, 78, 78, 0.589);
+  font-size: 1em;
+  font-weight: 900;
+  padding: 0.5em;
+  width: 9em;
+  text-shadow: 1px 1px 1px rgba(20, 100, 114, 0.493);
+}
+
+.dialogBtn {
+  text-align: center;
+}
+
+.bookDisplay {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1em;
+  margin: 2em;
+  justify-items: left;
+}
+
+.book {
+  border-left: 1.5em solid rgb(236, 215, 119);
+  padding: 1em;
+  background-color: rgb(255 255 255);
+  border-radius: 1em;
+}
+
+.book button {
+  background-color: transparent;
+  border: 1px solid transparent;
+  font-weight: 900;
+}
+
+.book .delBtn {
+  color: rgb(158, 0, 0);
+}
+
+.book .edBtn {
+  color: rgb(0, 140, 158);
+}
+
+dialog {
+  border: 0.1em solid transparent;
+  border-radius: 2em;
+}
+
+input {
+  border: 0.1em solid rgba(0, 0, 0, 0.199);
+  font-size: 100%;
+  width: 200px;
+  height: 25px;
+}
+
+input:focus {
+  outline-color: rgba(2, 130, 161, 0.37);
+}
+
+#bookform {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+  width: 100%;
+}
+
+label {
+  font-size: 1em;
+}
+
+input {
+  width: 70%;
+}
+
+.confirmBtn,
+.cancelBtn {
+  background-color: rgba(143, 144, 145, 0.671);
+  color: rgb(255, 255, 255);
+  font-weight: 600;
+  border-radius: 0.5em;
+  border: 0.1em solid rgba(143, 144, 145, 0.671);
+  font-size: 0.8em;
+  width: 9em;
+  height: 1.5em;
+}

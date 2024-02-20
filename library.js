@@ -1,8 +1,8 @@
 const bookDisplay = document.querySelector(".bookDisplay");
 const showButton = document.querySelector(".showDialog");
-const favDialog = document.querySelector(".favDialog");
-const confirmBtn = favDialog.querySelector(".confirmBtn");
-const cancelBtn = favDialog.querySelector(".cancelBtn");
+const dialog = document.querySelector(".dialog");
+const confirmBtn = dialog.querySelector(".confirmBtn");
+const cancelBtn = dialog.querySelector(".cancelBtn");
 const form = document.querySelector(".bookform");
 
 const myLibrary = [];
@@ -63,15 +63,8 @@ const updateBooks = () => {
     }`;
     bookDiv.appendChild(readPara);
 
-    const deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "Delete";
-    bookDiv.appendChild(deleteBtn);
-
-    deleteBtn.addEventListener("click", () => {
-      bookDisplay.removeChild(bookDiv);
-    });
-
     const editBtn = document.createElement("button");
+    editBtn.setAttribute("class", "edBtn")
     editBtn.textContent = "Change Read Status";
     bookDiv.appendChild(editBtn);
 
@@ -79,18 +72,27 @@ const updateBooks = () => {
       book.toggleReadStatus();
       readPara.textContent = `Read: ${book.read}`;
     });
+
+    const deleteBtn = document.createElement("button");
+    deleteBtn.setAttribute("class", "delBtn")
+    deleteBtn.textContent = "Delete Book";
+    bookDiv.appendChild(deleteBtn);
+
+    deleteBtn.addEventListener("click", () => {
+      bookDisplay.removeChild(bookDiv);
+    });
   }
 };
 
 updateBooks();
 
 showButton.addEventListener("click", () => {
-  favDialog.showModal();
+  dialog.showModal();
 });
 
 confirmBtn.addEventListener("click", (event) => {
   event.preventDefault();
-  favDialog.close();
+  dialog.close();
   addBookToLibrary(title, author, pages, read);
   updateBooks();
 });
