@@ -3,7 +3,7 @@ const showButton = document.querySelector(".showDialog");
 const favDialog = document.querySelector(".favDialog");
 const confirmBtn = favDialog.querySelector(".confirmBtn");
 const cancelBtn = favDialog.querySelector(".cancelBtn");
-const form = document.querySelector(".form");
+const form = document.querySelector(".bookform");
 
 const myLibrary = [];
 
@@ -18,6 +18,9 @@ function Book(title, author, pages, read) {
   };
 
   this.info();
+  this.toggleReadStatus = function () {
+    this.read = this.read === "Yes" ? "No" : "Yes";
+  };
 }
 
 /*stores books into myLibrary array*/
@@ -25,10 +28,6 @@ function addBookToLibrary(title, author, pages, read) {
   const newBook = new Book(title.value, author.value, pages.value, read.value);
   myLibrary.push(newBook);
 }
-
-/* addBookToLibrary("Harry Potter1", "JK Rowling", 1000, true);
-addBookToLibrary("Harry Potter2", "JK Rowling", 1000, true);
-addBookToLibrary("Harry Potter3", "JK Rowling", 1000, false); */
 
 /*displays each book on the page*/
 const updateBooks = () => {
@@ -70,6 +69,15 @@ const updateBooks = () => {
 
     deleteBtn.addEventListener("click", () => {
       bookDisplay.removeChild(bookDiv);
+    });
+
+    const editBtn = document.createElement("button");
+    editBtn.textContent = "Change Read Status";
+    bookDiv.appendChild(editBtn);
+
+    editBtn.addEventListener("click", () => {
+      book.toggleReadStatus();
+      readPara.textContent = `Read: ${book.read}`;
     });
   }
 };
