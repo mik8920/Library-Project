@@ -4,6 +4,10 @@ const dialog = document.querySelector(".dialog");
 const confirmBtn = dialog.querySelector(".confirmBtn");
 const cancelBtn = dialog.querySelector(".cancelBtn");
 const form = document.querySelector(".bookform");
+const title = document.getElementById("title");
+const author = document.getElementById("author");
+const pages = document.getElementById("pages");
+const read = document.getElementById("read");
 
 const myLibrary = [];
 
